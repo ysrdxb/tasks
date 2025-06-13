@@ -1,0 +1,403 @@
+/* AI Project Manager Custom Styles */
+
+:root {
+    --primary-color: #0d6efd;
+    --secondary-color: #6c757d;
+    --success-color: #198754;
+    --warning-color: #ffc107;
+    --danger-color: #dc3545;
+    --info-color: #0dcaf0;
+    --light-color: #f8f9fa;
+    --dark-color: #212529;
+    --border-radius: 0.5rem;
+    --box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+    --transition: all 0.15s ease-in-out;
+}
+
+/* Body and Layout */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+}
+
+.navbar-brand {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+/* Cards and Components */
+.card {
+    border: none;
+    box-shadow: var(--box-shadow);
+    border-radius: var(--border-radius);
+    transition: var(--transition);
+}
+
+.card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
+
+.card-header {
+    background: linear-gradient(135deg, var(--primary-color), #0056b3);
+    color: white;
+    border-radius: var(--border-radius) var(--border-radius) 0 0 !important;
+    font-weight: 600;
+}
+
+/* Buttons */
+.btn {
+    border-radius: var(--border-radius);
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--primary-color), #0056b3);
+    border: none;
+}
+
+.btn-primary:hover {
+    background: linear-gradient(135deg, #0056b3, #004085);
+    transform: translateY(-1px);
+}
+
+/* Loading Overlay */
+#loadingOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.loading-spinner {
+    text-align: center;
+    color: white;
+}
+
+.loading-spinner .spinner-border {
+    width: 3rem;
+    height: 3rem;
+}
+
+/* Project Priority Badges */
+.priority-low {
+    background-color: var(--success-color) !important;
+}
+
+.priority-medium {
+    background-color: var(--warning-color) !important;
+    color: var(--dark-color) !important;
+}
+
+.priority-high {
+    background-color: var(--danger-color) !important;
+}
+
+.priority-urgent {
+    background-color: #8B0000 !important;
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0% { opacity: 1; }
+    50% { opacity: 0.7; }
+    100% { opacity: 1; }
+}
+
+/* Project Status Badges */
+.status-planning {
+    background-color: var(--secondary-color) !important;
+}
+
+.status-active {
+    background-color: var(--primary-color) !important;
+}
+
+.status-on_hold {
+    background-color: var(--warning-color) !important;
+    color: var(--dark-color) !important;
+}
+
+.status-completed {
+    background-color: var(--success-color) !important;
+}
+
+.status-cancelled {
+    background-color: var(--danger-color) !important;
+}
+
+/* Progress Bars */
+.progress {
+    height: 0.75rem;
+    border-radius: var(--border-radius);
+}
+
+.progress-bar {
+    transition: width 0.6s ease;
+}
+
+/* File Upload Area */
+.file-upload-area {
+    border: 2px dashed var(--primary-color);
+    border-radius: var(--border-radius);
+    padding: 3rem;
+    text-align: center;
+    background: rgba(13, 110, 253, 0.05);
+    transition: var(--transition);
+    cursor: pointer;
+}
+
+.file-upload-area:hover {
+    background: rgba(13, 110, 253, 0.1);
+    border-color: #0056b3;
+}
+
+.file-upload-area.drag-over {
+    background: rgba(13, 110, 253, 0.15);
+    border-color: #0056b3;
+    transform: scale(1.02);
+}
+
+/* Task List */
+.task-item {
+    border-left: 4px solid var(--primary-color);
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+    transition: var(--transition);
+}
+
+.task-item:hover {
+    background: rgba(13, 110, 253, 0.05);
+    transform: translateX(5px);
+}
+
+.task-item.completed {
+    border-left-color: var(--success-color);
+    background: rgba(25, 135, 84, 0.05);
+}
+
+.task-item.completed .task-title {
+    text-decoration: line-through;
+    opacity: 0.7;
+}
+
+/* Kanban Board */
+.kanban-column {
+    background: var(--light-color);
+    border-radius: var(--border-radius);
+    min-height: 500px;
+}
+
+.kanban-card {
+    cursor: grab;
+    margin-bottom: 1rem;
+}
+
+.kanban-card:active {
+    cursor: grabbing;
+}
+
+.kanban-card.dragging {
+    opacity: 0.5;
+    transform: rotate(5deg);
+}
+
+/* Charts */
+.chart-container {
+    position: relative;
+    height: 300px;
+    margin: 1rem 0;
+}
+
+/* Dashboard Stats */
+.stat-card {
+    text-align: center;
+    padding: 1.5rem;
+}
+
+.stat-card .stat-number {
+    font-size: 2.5rem;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.stat-card .stat-label {
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--secondary-color);
+    margin-top: 0.5rem;
+}
+
+/* AI Confidence Indicators */
+.ai-confidence {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    font-size: 0.875rem;
+}
+
+.ai-confidence-high {
+    color: var(--success-color);
+}
+
+.ai-confidence-medium {
+    color: var(--warning-color);
+}
+
+.ai-confidence-low {
+    color: var(--danger-color);
+}
+
+/* Timeline */
+.timeline {
+    position: relative;
+    padding-left: 2rem;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 0.75rem;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: var(--primary-color);
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 1.5rem;
+}
+
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -1.75rem;
+    top: 0.5rem;
+    width: 0.75rem;
+    height: 0.75rem;
+    border-radius: 50%;
+    background: var(--primary-color);
+    border: 3px solid white;
+    box-shadow: var(--box-shadow);
+}
+
+/* Search and Filters */
+.search-bar {
+    background: white;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.filter-chip {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    background: var(--light-color);
+    border: 1px solid #dee2e6;
+    border-radius: 1rem;
+    font-size: 0.875rem;
+    cursor: pointer;
+    transition: var(--transition);
+    margin: 0.25rem;
+}
+
+.filter-chip:hover,
+.filter-chip.active {
+    background: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .stat-card .stat-number {
+        font-size: 2rem;
+    }
+    
+    .kanban-column {
+        margin-bottom: 1rem;
+    }
+    
+    .file-upload-area {
+        padding: 2rem 1rem;
+    }
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+    .card {
+        background: #1a1a1a;
+        color: #e9ecef;
+    }
+    
+    .kanban-column {
+        background: #2d2d2d;
+    }
+    
+    .search-bar {
+        background: #1a1a1a;
+        color: #e9ecef;
+    }
+}
+
+/* Animation Classes */
+.fade-in {
+    animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.slide-in-left {
+    animation: slideInLeft 0.5s ease-out;
+}
+
+@keyframes slideInLeft {
+    from { opacity: 0; transform: translateX(-100px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+.slide-in-right {
+    animation: slideInRight 0.5s ease-out;
+}
+
+@keyframes slideInRight {
+    from { opacity: 0; transform: translateX(100px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+/* Utility Classes */
+.cursor-pointer {
+    cursor: pointer;
+}
+
+.text-decoration-none:hover {
+    text-decoration: none !important;
+}
+
+.border-start-primary {
+    border-left: 4px solid var(--primary-color) !important;
+}
+
+.border-start-success {
+    border-left: 4px solid var(--success-color) !important;
+}
+
+.border-start-warning {
+    border-left: 4px solid var(--warning-color) !important;
+}
+
+.border-start-danger {
+    border-left: 4px solid var(--danger-color) !important;
+}
